@@ -9,7 +9,7 @@ class mod_fancypantsaccordionHelper{
 	
 	public function load_jquery($params){
 		$doc = JFactory::getDocument();
-		$app = JFactory::getApplications();
+		$app = JFactory::getApplication();
 		
 		static $jqLoaded;
 		
