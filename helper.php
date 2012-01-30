@@ -21,6 +21,7 @@ class mod_fancypantsaccordionHelper{
 			$file=JURI::root(true).'/modules/mod_fancypantsaccordion/assets/js/jquery-1.7.1.min.js';
 			$app->set('jQuery',1);
 			$doc->addScript($file);
+			$doc->addScriptDeclaration("jQuery.noConflict();");
 			
 			$jqLoaded = true;
 		}
