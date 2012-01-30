@@ -18,4 +18,6 @@ $list = mod_fancypantsaccordionHelper::getList($params);
 //keeps module class suffix even if templateer tries to stop it
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
+mod_fancypantsaccordiontHelper::load_jquery($params);
+
 require(JModuleHelper::getLayoutPath('mod_fancypantsaccordion'));
