@@ -1,0 +1,76 @@
+//default options
+$.Accordion.defaults = {
+		//index of -1 means all closed at start
+		open:-1,
+		//if set to true only one item can be opened at a time
+		oneOpenedItem: false,
+		//speed of animation
+		speed:600,
+		//easing to use
+		easing: 'easeInOutExpo',
+		//speed of scroll to top
+		scrollSpeed: 900,
+		//easing of scroll to top
+		scrollEasing:'easeInOutExpo'
+},
+
+_init:function(options){
+	this.options=$.extend(true,{},$.Accordion.defualts, options);
+	//validate ze options
+	this._validate();
+	//current is index of opened slide
+	this.current = this.options.open;
+	//hide content so we can fancily fade it in.
+	this.$items.find('div.acc-content').hide();
+	//save original height and top of the item
+	this._saveDimValues();
+	//if needed, a default opened item
+	if(this.current !=-1)
+		this._toggleItem(this.$items.eq(this.current));
+	
+	//initialise!
+	this._initEvents();
+	
+_toggleItem:function($item){
+	var $content = $item.find('div.acc-content');
+	
+	($item.hasClass('acc-open'))
+	
+	? (this.current = -1, $content.stop(true,true).fadeOut(this.options.speed), $item.removeClass('acc-open').stop().animate({height: $item.data('originalHeight')},this.options.speed,this.options.easting))
+
+	:(this.current = $item.index(), $content.stop(true,true).fadeIn(this.options.speed), $item.addClass('acc-open').stop().animate({height: $item.data('originalHeight') + $content.outerHeight(true)}, this.options.speed,this.options.easing), this._scroll(this))
+	
+},
+
+_initEvents:function(){
+	var instance = this;
+	
+	//open or close item
+	this.$items.find('a:first').bind('click.accordion',function(event){
+		 var $item = $(this).parent();
+		 
+		 //close any opened items if one opened item is true
+		 if(instance.options.oneOpenedItem && instance._isOpened() && instance.current!==$item.index()){
+			 instance._toggleItem(instance.$items.eq(instance.current));
+		 }
+		 
+		 //open close item
+		 instance._toggleItem($item);
+		 
+		 return false;
+	}) ;
+	
+	$window.bind('smartresize.accordion', function(event){
+		//reset original item values
+		instance._saveDimValues();
+		
+		//reset the content heights of any item opened currently
+		instance.$el.find('li.acc-open').each(function(){
+			var $this = $(this);
+		})$this.css('height',$this.data('originalHeight') + $this.find('div.acc-content').outerHeight(true));
+		
+		//scroll to current
+		if(instance._isOpened())
+			instance._scroll();
+	});
+};

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="1.7" client="site" method="install">
+	<name>Fancy Pants Accordion Module</name>
+	<author>Tristan Brookes</author>
+	<creationDate>January 2012</creationDate>
+	<copyright>Copyright (C) 2012 Tristan Brookes</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail>tristan@tristan-brookes.co.uk</authorEmail>
+	<authorURL>http://www.tristan-brookes.co.uk</authorURL>
+	<version>0.1</version>
+	<description>A fancy pants, responsive, jQuery slider. Yeah, you bet your ass that sounds awesome.</description>
+	
+	<files>
+		<filename>mod_fancypantsaccordion.xml</filename>
+		<filename module="mod_fancypantsaccordion">mod_fancypantsaccordion.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+		<folder>assets</folder>
+		<folder>language</folder>
+	</files>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="catid" type="category" extension="com_content" 
+				multiple="false" defualt="" size="10" label="Category"
+				description="Choose your category to output"/>
+				<field name="count" type="text" default="5" label="How many?"
+				description="How many articles to show"/>
+			</fieldset>
+			
+			<fieldset name="advanced">
+				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL"
+				description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+				description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+				<field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL"
+				description="COM_MODULES_FIELD_CACHING_DESC">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field name="cache_time" type="text" default="900" 
+				label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+				description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+				<field name="cachemode" type="hidden" default="itemid">
+					<option value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

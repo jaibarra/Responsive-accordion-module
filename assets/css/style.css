@@ -1,0 +1,88 @@
+.fancypantsaccordionholder{
+	max-width:100%;
+	margin: 0 auto;
+}
+
+.fancypantsaccordionholder ul li{
+	height:100px;
+	border-bottom:1px solid #ccc;
+	border-top:1px solid #fff;
+	overflow:hidden;
+}
+
+.fancypantsaccordionholder ul li:first-child{
+	border-top:none;
+}
+
+.fancypantsaccordionholder ul li > a{
+	font-family:sans-serif;
+	text-decoration:none;
+	color:#444;
+	text-shadow:1px 1px 1px #fff;
+	font-size:46px;
+	display:block;
+	position:relative;
+	line-height:100px;
+	outline:none;
+	-webkit-transition: color 0.2s linear;
+	-moz-transition: color 0.2s ease-in-out;
+	-o-transition: color 0.2s ease-in-out;
+	-ms-transition: color 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out;
+}
+
+.fancypantsaccordionholder ul li > a:hover{
+	color:#f00f00;
+}
+
+.fancypantsaccordionholder ul li > a span{
+   	background: transparent url('down.png') no-repeat center center;
+    text-indent:-9000px;
+    width: 26px;
+    display:block;
+    height: 14px;
+    position: absolute;
+    top: 50%;
+   	right: 0;
+    margin-top: -7px;
+    opacity:0;
+    -webkit-transition:  all 0.2s ease-in-out;
+    -moz-transition:  all 0.2s ease-in-out;
+    -o-transition:  all 0.2s ease-in-out;
+    -ms-transition:  all 0.2s ease-in-out;
+    transition:  all 0.2s ease-in-out;
+}
+
+.fancypantsaccordionholder ul li > a:hover span{
+	opacity:1;
+	right:10px;
+}
+
+.fancypantsaccordionholder ul li.acc-open > a{
+	color:#f00f00;
+}
+
+.fancypantsaccordionholder ul li.acc-open > a span{
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg);
+	transform:rotate(180deg);
+	right:10px;
+	opacity:1;
+}
+
+.acc-content{
+	padding:5px 0px 30px 0px;
+}
+
+.acc-content p{
+	font-size:16px;
+	font-family:Georgia, serif;
+	line-height:@8px;
+	padding:0px 4px 15px 4px;
+}
+
+@media screen and (max-width:320px){
+	.fancypantsaccordionholder ul li > a{
+		font-size:36px;
+	}
+}
