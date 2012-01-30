@@ -18,7 +18,7 @@ class mod_fancypantsaccordionHelper{
 		}
 		
 		if ($params->get('load_jquery') && !$app->get('jQuery')){
-			$file=JURI::base(true) . '/modules/mod_fancypantsaccordion/assets/js/jquery.easing.1.3.js';
+			$file=JURI::base(true) . '/modules/mod_fancypantsaccordion/assets/js/jquery-1.7.1.min.js';
 			$app->set('jQuery',1);
 			$doc->addScript($file);
 			$doc->addScriptDeclaration("jQuery.noConflict();");
