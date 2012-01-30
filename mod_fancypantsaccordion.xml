@@ -23,10 +23,6 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="load_jquery" type="radio" default="1" label="Enable jQuery?" description="Turn on or off inlcuded jQuery">
-					<option value="1">Yes</option>
-					<option value="0">No</option>
-				</field>
 				<field name="catid" type="category" extension="com_content" 
 				multiple="false" defualt="" size="10" label="Category"
 				description="Choose your category to output"/>
@@ -35,6 +31,10 @@
 			</fieldset>
 			
 			<fieldset name="advanced">
+				<field name="load_jquery" type="radio" default="1" label="Enable jQuery?" description="Turn on or off inlcuded jQuery">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
 				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL"
 				description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
 				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"

@@ -7,23 +7,24 @@ JModel::addIncludePath(JPATH_SITE.'/components/com_content/models');
 
 class mod_fancypantsaccordionHelper{
 	
-	public function load_jquery($params){
-		$doc = JFactory::getDocument();
-		$app = JFactory::getApplication();
+	public function load_jquery(&$params){
+		$doc = &JFactory::getDocument();
+		$app = &JFactory::getApplication();
 		
 		static $jqLoaded;
 		
-		if ($jqLoaded){
+		if ($jqloaded){
 			return;
 		}
 		
-		if ($params->get('load_jquery') && !$app->get('jQuery')){
-			$file=JURI::base(true) . '/modules/mod_fancypantsaccordion/assets/js/jquery-1.7.1.min.js';
+		if($params->get('load_jquery') && !$app->get('jQuery')){
+			$file=JURI::root(true).'/modules/mod_fancypantsaccordion/assets/js/jquery-1.7.1.min.js';
 			$app->set('jQuery',1);
 			$doc->addScript($file);
-			$doc->addScriptDeclaration("jQuery.noConflict();");
-			$jqLoaded = TRUE;
+			
+			$jqLoaded = true;
 		}
+					
 	}
 	
 	public function getList($params){
