@@ -23,7 +23,7 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="load_jQuery" type="radio" default="1" label="Enable jQuery?" description="Turn on or off inlcuded jQuery">
+				<field name="load_jquery" type="radio" default="1" label="Enable jQuery?" description="Turn on or off inlcuded jQuery">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>
