@@ -53,6 +53,26 @@ class mod_fancypantsaccordionHelper{
 		
 		//lists fields to return
 		$model->setState('list.select','a.id, a.fulltext, a.title, a.alias, a.title_alias, a.introtext, a.state, a.catid');
+
+		
+		//sorts out the ordering
+		switch($params->get('ordering'))
+		{				
+			case 'dsc':
+				$model->setState('list.ordering','a.ordering');
+				$model->setState('list.direction', 'DESC');
+				break;
+			case 'asc':
+				$model->setState('list.ordering','a.ordering');
+				$model->setState('list.direction','ASC');
+				break;
+			case 'rcnt':
+			default:
+				$model->setState('list.ordering', 'a.created');
+				$model->setState('list.direction', 'DESC');
+				break;
+		}
+		
 		
 		//sets access levels on articles for non registered etc
 		$access = !JComponentHelper::getParams('com_content')->get('show_noauth');
