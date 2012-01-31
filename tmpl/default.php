@@ -26,8 +26,8 @@ defined('_JEXEC') or die;
 </div>
 
 <script type="text/javascript">
-	$(function() {
-		$('.fancypantsaccordionholder').accordion({
+	jQuery(function() {
+		jQuery('.fancypantsaccordionholder').accordion({
 			oneOpenedItem:true,
 			speed:300,
 			scrollSpeed:300	

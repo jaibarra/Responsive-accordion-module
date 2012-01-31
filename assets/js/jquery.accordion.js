@@ -1,4 +1,3 @@
-(function( window, $, undefined ) {
 	
 	/*
 	* smartresize: debounced resize event for jQuery
@@ -10,14 +9,14 @@
 	* Licensed under the MIT license.
 	*/
 
-	var $event = $.event, resizeTimeout;
+	var jQueryevent = jQuery.event, resizeTimeout;
 
-	$event.special.smartresize 	= {
+	jQueryevent.special.smartresize 	= {
 		setup: function() {
-			$(this).bind( "resize", $event.special.smartresize.handler );
+			jQuery(this).bind( "resize", jQueryevent.special.smartresize.handler );
 		},
 		teardown: function() {
-			$(this).unbind( "resize", $event.special.smartresize.handler );
+			jQuery(this).unbind( "resize", jQueryevent.special.smartresize.handler );
 		},
 		handler: function( event, execAsap ) {
 			// Save the context
@@ -34,24 +33,24 @@
 		}
 	};
 
-	$.fn.smartresize 			= function( fn ) {
+	jQuery.fn.smartresize 			= function( fn ) {
 		return fn ? this.bind( "smartresize", fn ) : this.trigger( "smartresize", ["execAsap"] );
 	};
 	
-	$.Accordion 				= function( options, element ) {
+	jQuery.Accordion 				= function( options, element ) {
 	
-		this.$el			= $( element );
+		this.jQueryel			= jQuery( element );
 		// list items
-		this.$items			= this.$el.children('ul').children('li');
+		this.jQueryitems			= this.jQueryel.children('ul').children('li');
 		// total number of items
-		this.itemsCount		= this.$items.length;
+		this.itemsCount		= this.jQueryitems.length;
 		
 		// initialize accordion
 		this._init( options );
 		
 	};
 	
-	$.Accordion.defaults 		= {
+	jQuery.Accordion.defaults 		= {
 		// index of opened item. -1 means all are closed by default.
 		open			: -1,
 		// if set to true, only one item can be opened. Once one item is opened, any other that is opened will be closed first
@@ -66,10 +65,10 @@
 		scrollEasing	: 'easeInOutExpo'
     };
 	
-	$.Accordion.prototype 		= {
+	jQuery.Accordion.prototype 		= {
 		_init 				: function( options ) {
 			
-			this.options 		= $.extend( true, {}, $.Accordion.defaults, options );
+			this.options 		= jQuery.extend( true, {}, jQuery.Accordion.defaults, options );
 			
 			// validate options
 			this._validate();
@@ -78,14 +77,14 @@
 			this.current		= this.options.open;
 			
 			// hide the contents so we can fade it in afterwards
-			this.$items.find('div.acc-content').hide();
+			this.jQueryitems.find('div.acc-content').hide();
 			
 			// save original height and top of each item	
 			this._saveDimValues();
 			
 			// if we want a default opened item...
 			if( this.current != -1 )
-				this._toggleItem( this.$items.eq( this.current ) );
+				this._toggleItem( this.jQueryitems.eq( this.current ) );
 			
 			// initialize the events
 			this._initEvents();
@@ -93,13 +92,13 @@
 		},
 		_saveDimValues		: function() {
 		
-			this.$items.each( function() {
+			this.jQueryitems.each( function() {
 				
-				var $item		= $(this);
+				var jQueryitem		= jQuery(this);
 				
-				$item.data({
-					originalHeight 	: $item.find('a:first').height(),
-					offsetTop		: $item.offset().top
+				jQueryitem.data({
+					originalHeight 	: jQueryitem.find('a:first').height(),
+					offsetTop		: jQueryitem.offset().top
 				});
 				
 			});
@@ -118,34 +117,34 @@
 			var instance	= this;
 			
 			// open / close item
-			this.$items.find('a:first').bind('click.accordion', function( event ) {
+			this.jQueryitems.find('a:first').bind('click.accordion', function( event ) {
 				
-				var $item			= $(this).parent();
+				var jQueryitem			= jQuery(this).parent();
 				
 				// close any opened item if oneOpenedItem is true
-				if( instance.options.oneOpenedItem && instance._isOpened() && instance.current!== $item.index() ) {
+				if( instance.options.oneOpenedItem && instance._isOpened() && instance.current!== jQueryitem.index() ) {
 					
-					instance._toggleItem( instance.$items.eq( instance.current ) );
+					instance._toggleItem( instance.jQueryitems.eq( instance.current ) );
 				
 				}
 				
 				// open / close item
-				instance._toggleItem( $item );
+				instance._toggleItem( jQueryitem );
 				
 				return false;
 			
 			});
 			
-			$(window).bind('smartresize.accordion', function( event ) {
+			jQuery(window).bind('smartresize.accordion', function( event ) {
 				
 				// reset orinal item values
 				instance._saveDimValues();
 			
 				// reset the content's height of any item that is currently opened
-				instance.$el.find('li.acc-open').each( function() {
+				instance.jQueryel.find('li.acc-open').each( function() {
 					
-					var $this	= $(this);
-					$this.css( 'height', $this.data( 'originalHeight' ) + $this.find('div.acc-content').outerHeight( true ) );
+					var jQuerythis	= jQuery(this);
+					jQuerythis.css( 'height', jQuerythis.data( 'originalHeight' ) + jQuerythis.find('div.acc-content').outerHeight( true ) );
 				
 				});
 				
@@ -159,22 +158,22 @@
 		// checks if there is any opened item
 		_isOpened			: function() {
 		
-			return ( this.$el.find('li.acc-open').length > 0 );
+			return ( this.jQueryel.find('li.acc-open').length > 0 );
 		
 		},
 		// open / close item
-		_toggleItem			: function( $item ) {
+		_toggleItem			: function( jQueryitem ) {
 			
-			var $content = $item.find('div.acc-content');
+			var jQuerycontent = jQueryitem.find('div.acc-content');
 			
-			( $item.hasClass( 'acc-open' ) ) 
+			( jQueryitem.hasClass( 'acc-open' ) ) 
 					
-				? ( this.current = -1, $content.stop(true, true).fadeOut( this.options.speed ), $item.removeClass( 'acc-open' ).stop().animate({
-					height	: $item.data( 'originalHeight' )
+				? ( this.current = -1, jQuerycontent.stop(true, true).fadeOut( this.options.speed ), jQueryitem.removeClass( 'acc-open' ).stop().animate({
+					height	: jQueryitem.data( 'originalHeight' )
 				}, this.options.speed, this.options.easing ) )
 				
-				: ( this.current = $item.index(), $content.stop(true, true).fadeIn( this.options.speed ), $item.addClass( 'acc-open' ).stop().animate({
-					height	: $item.data( 'originalHeight' ) + $content.outerHeight( true )
+				: ( this.current = jQueryitem.index(), jQuerycontent.stop(true, true).fadeIn( this.options.speed ), jQueryitem.addClass( 'acc-open' ).stop().animate({
+					height	: jQueryitem.data( 'originalHeight' ) + jQuerycontent.outerHeight( true )
 				}, this.options.speed, this.options.easing ), this._scroll( this ) )
 		
 		},
@@ -183,10 +182,10 @@
 			
 			var instance	= instance || this, current;
 			
-			( instance.current !== -1 ) ? current = instance.current : current = instance.$el.find('li.acc-open:last').index();
+			( instance.current !== -1 ) ? current = instance.current : current = instance.jQueryel.find('li.acc-open:last').index();
 			
-			$('html, body').stop().animate({
-				scrollTop	: ( instance.options.oneOpenedItem ) ? instance.$items.eq( current ).data( 'offsetTop' ) : instance.$items.eq( current ).offset().top
+			jQuery('html, body').stop().animate({
+				scrollTop	: ( instance.options.oneOpenedItem ) ? instance.jQueryitems.eq( current ).data( 'offsetTop' ) : instance.jQueryitems.eq( current ).offset().top
 			}, instance.options.scrollSpeed, instance.options.scrollEasing );
 		
 		}
@@ -202,7 +201,7 @@
 		
 	};
 	
-	$.fn.accordion 				= function( options ) {
+	jQuery.fn.accordion 				= function( options ) {
 	
 		if ( typeof options === 'string' ) {
 		
@@ -210,7 +209,7 @@
 
 			this.each(function() {
 			
-				var instance = $.data( this, 'accordion' );
+				var instance = jQuery.data( this, 'accordion' );
 				
 				if ( !instance ) {
 					logError( "cannot call methods on accordion prior to initialization; " +
@@ -218,7 +217,7 @@
 					return;
 				}
 				
-				if ( !$.isFunction( instance[options] ) || options.charAt(0) === "_" ) {
+				if ( !jQuery.isFunction( instance[options] ) || options.charAt(0) === "_" ) {
 					logError( "no such method '" + options + "' for accordion instance" );
 					return;
 				}
@@ -231,9 +230,9 @@
 		else {
 		
 			this.each(function() {
-				var instance = $.data( this, 'accordion' );
+				var instance = jQuery.data( this, 'accordion' );
 				if ( !instance ) {
-					$.data( this, 'accordion', new $.Accordion( options, this ) );
+					jQuery.data( this, 'accordion', new jQuery.Accordion( options, this ) );
 				}
 			});
 		
@@ -243,4 +242,3 @@
 		
 	};
 	
-})( window, jQuery );
