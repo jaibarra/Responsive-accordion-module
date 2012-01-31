@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" version="1.7" client="site" method="install">
-	<name>Fancy Pants Accordion Module</name>
+	<name>Code7 Responsive Accordion Module</name>
 	<author>Tristan Brookes</author>
 	<creationDate>January 2012</creationDate>
-	<copyright>Copyright (C) 2012 Tristan Brookes</copyright>
+	<copyright>Copyright (C) 2012 Tristan Brookes/Code7</copyright>
 	<license>GNU General Public License version 2 or later</license>
-	<authorEmail>tristan@tristan-brookes.co.uk</authorEmail>
-	<authorURL>http://www.tristan-brookes.co.uk</authorURL>
+	<authorEmail>tristan.brookes@code7webdesign.co.uk</authorEmail>
+	<authorURL>http://www.code7webdesign.co.uk</authorURL>
 	<version>0.1</version>
-	<description>A fancy pants, responsive, jQuery slider. Yeah, you bet your ass that sounds awesome.</description>
+	<description>A responsive article accordion module.</description>
 	
 	<files>
 		<filename>mod_fancypantsaccordion.xml</filename>
