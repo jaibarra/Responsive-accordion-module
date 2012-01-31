@@ -7,3 +7,5 @@ Features:
 - Order by recent first, ascending/descending by ID or randomly.
 
 It's a simple module and we're not hiding that, it's lovely, it's to the point and it's simple to use.
+
+Based on the awesome work at http://tympanus.net/codrops/2011/10/12/flexible-slide-to-top-accordion/.
