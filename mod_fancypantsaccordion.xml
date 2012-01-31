@@ -37,6 +37,7 @@
 					<option value="rcnt">Recently Added</option>
 					<option value="dsc">Article ID descending</option>
 					<option value="asc">Article ID ascending</option>
+					<option value="random">Random</option>
 				</field>
 			</fieldset>
 			

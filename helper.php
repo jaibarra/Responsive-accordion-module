@@ -66,6 +66,9 @@ class mod_fancypantsaccordionHelper{
 				$model->setState('list.ordering','a.ordering');
 				$model->setState('list.direction','ASC');
 				break;
+			case 'random':
+				$model->setState('list.ordering','rand()');
+				break;
 			case 'rcnt':
 			default:
 				$model->setState('list.ordering', 'a.created');
