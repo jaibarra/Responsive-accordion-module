@@ -32,6 +32,13 @@
 				description="Choose your category to output"/>
 				<field name="count" type="text" default="5" label="How many?"
 				description="How many articles to show"/>
+				<field name="ordering" type="list" default="descending" label="Ordering"
+					description="Ordering options">
+					<option value="rcnt">Recently Added</option>
+					<option value="dsc">Article ID descending</option>
+					<option value="asc">Article ID ascending</option>
+					<option value="random">Random</option>
+				</field>
 			</fieldset>
 			
 			<fieldset name="advanced">
