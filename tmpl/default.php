@@ -11,7 +11,7 @@ defined('_JEXEC') or die;
 		<?php foreach ($list as $item): ?>
 		
 		<li>
-			<a href="#">
+			<a href="#" class="headerlink">
 				<?php echo htmlspecialchars($item->title); ?>
 				<span class="acc-arrow">Open or Close</span>
 			</a>
