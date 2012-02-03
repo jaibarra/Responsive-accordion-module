@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension type="module" version="1.7" client="site" method="install">
+<extension type="module" version="1.6" client="site" method="install">
 	<name>Code7 Responsive Accordion Module</name>
 	<author>Tristan Brookes</author>
 	<creationDate>January 2012</creationDate>
