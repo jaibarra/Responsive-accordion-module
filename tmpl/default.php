@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 				<span class="acc-arrow">Open or Close</span>
 			</a>
 			<div class="acc-content">
-				<?php echo htmlspecialchars($item->introtext); ?>
+				<?php echo $item->introtext; ?>
 			</div>
 		</li>
 		
