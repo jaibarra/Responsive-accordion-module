@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 				<span class="acc-arrow">Open or Close</span>
 			</a>
 			<div class="acc-content">
-				<?php echo strip_tags($item->introtext); ?>
+				<?php echo htmlspecialchars($item->introtext); ?>
 			</div>
 		</li>
 		
