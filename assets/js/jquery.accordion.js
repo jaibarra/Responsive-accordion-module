@@ -184,9 +184,9 @@
 			
 			( instance.current !== -1 ) ? current = instance.current : current = instance.jQueryel.find('li.acc-open:last').index();
 			
-			jQuery('html, body').stop().animate({
-				scrollTop	: ( instance.options.oneOpenedItem ) ? instance.jQueryitems.eq( current ).data( 'offsetTop' ) : instance.jQueryitems.eq( current ).offset().top
-			}, instance.options.scrollSpeed, instance.options.scrollEasing );
+			//jQuery('html, body').stop().animate({
+				//scrollTop	: ( instance.options.oneOpenedItem ) ? instance.jQueryitems.eq( current ).data( 'offsetTop' ) : instance.jQueryitems.eq( current ).offset().top
+			//}, instance.options.scrollSpeed, instance.options.scrollEasing );
 		
 		}
 	};
