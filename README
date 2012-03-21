@@ -18,3 +18,7 @@ v1.1 - 21/03/2012
 - Reduced default heading text size
 - Added option to choose heading font-size and box size.
 - Added publishing order ascending/descending to ordering.
+
+v1.2 - 21/03/2012
+- Added CSS to make all elements have a max-width of 100%.
+- Added word-wrap: break-word in case any elements are super long.

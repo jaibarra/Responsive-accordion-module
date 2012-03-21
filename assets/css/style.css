@@ -72,6 +72,12 @@
 
 .acc-content{
 	padding:5px 0px 30px 0px;
+	max-width:100%;
+}
+
+.acc-content img, .acc-content > *{
+	max-width:100%;
+	word-wrap:break-word;
 }
 
 .acc-content p{
