@@ -1,5 +1,7 @@
 <?php
 
+#@license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+
 defined('_JEXEC') or die;
 
 ?>
@@ -10,8 +12,14 @@ defined('_JEXEC') or die;
 		
 		<?php foreach ($list as $item): ?>
 		
-		<li>
-			<a href="#" class="headerlink">
+		<?php $headingHeight = $params->get('headingHeight'); ?>
+		<?php $headingSize = $params->get('headingSize'); ?>
+		
+		<li <?php if($headingHeight != "") { echo "style='height:".$headingHeight."px; list-style:none;'"; } ?>>
+			<a href="#" class="headerlink" <?php if($headingHeight != "" && $headingSize =="" ) { echo "style='line-height:".$headingHeight."px;'"; }  
+											else if($headingHeight == "" && $headingSize !="" ) { echo "style='font-size:".$headingSize."px;'"; }
+											else if($headingHeight != "" && $headingSize !="" ) { echo "style='font-size:".$headingSize."px; line-height:".$headingHeight."px;'";}
+			?> >
 				<?php echo htmlspecialchars($item->title); ?>
 				<span class="acc-arrow">Open or Close</span>
 			</a>

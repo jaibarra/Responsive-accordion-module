@@ -1,6 +1,9 @@
 <?php
 
+#@license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+
 defined('_JEXEC') or die;
+
 
 jimport('joomla.application.component.model');
 JModel::addIncludePath(JPATH_SITE.'/components/com_content/models');
@@ -57,7 +60,15 @@ class mod_fancypantsaccordionHelper{
 		
 		//sorts out the ordering
 		switch($params->get('ordering'))
-		{				
+		{			
+			case 'pubAsc':
+				$model->setState('list.ordering','publish_up');
+				$model->setState('list.direction', 'ASC');
+				break;
+			case 'pubDesc':
+				$model->setState('list.ordering','publish_up');
+				$model->setState('list.direction', 'DESC');
+				break;
 			case 'dsc':
 				$model->setState('list.ordering','a.ordering');
 				$model->setState('list.direction', 'DESC');

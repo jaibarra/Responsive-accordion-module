@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>tristan.brookes@code7webdesign.co.uk</authorEmail>
 	<authorURL>http://www.code7webdesign.co.uk</authorURL>
-	<version>1.0</version>
+	<version>1.1</version>
 	<description>A responsive article accordion module.</description>
 	
 	<files>
@@ -27,6 +27,12 @@
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>
+				<field name="poptotop" type="radio" default="0" label="Pop to the top of open article?" description="Turn on to scroll to the top of the opened article">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="headingSize" type="text" default="" label="Enter a heading size (will be px)" description="Leave blank for default 14px"/>
+				<field name="headingHeight" type="text" default="" label="Enter height of headings (will be px)" description="Leave blank for default 30px height"/>
 				<field name="catid" type="category" extension="com_content" 
 				multiple="false" defualt="" size="10" label="Category"
 				description="Choose your category to output"/>
@@ -34,9 +40,11 @@
 				description="How many articles to show"/>
 				<field name="ordering" type="list" default="descending" label="Ordering"
 					description="Ordering options">
+					<option value="dsc">Joomla order descending</option>
+					<option value="asc">Joomla order ascending</option>
+					<option value="pubAsc">Publish Date Ascending</option>
+					<option value="pubDesc">Publish Date Descending</option>
 					<option value="rcnt">Recently Added</option>
-					<option value="dsc">Article ID descending</option>
-					<option value="asc">Article ID ascending</option>
 					<option value="random">Random</option>
 				</field>
 			</fieldset>

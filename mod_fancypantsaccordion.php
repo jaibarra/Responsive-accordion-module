@@ -1,5 +1,7 @@
 <?php
 
+#@license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+
 /* FANCY PANTS ACCORDION */
 
 defined('_JEXEC') or die;
@@ -19,6 +21,11 @@ $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 mod_fancypantsaccordionHelper::load_jquery($params);
 
 $doc->addScript(JURI::base(true) . '/modules/mod_fancypantsaccordion/assets/js/jquery.easing.1.3.js');
-$doc->addScript(JURI::base(true) . '/modules/mod_fancypantsaccordion/assets/js/jquery.accordion.js');
+
+if($params->get('poptotop','1')){
+	$doc->addScript(JURI::base(true) . '/modules/mod_fancypantsaccordion/assets/js/jquery.accordion.js');
+} else{
+	$doc->addScript(JURI::base(true) . '/modules/mod_fancypantsaccordion/assets/js/jquery.accordion_noscroll.js');
+}
 
 require(JModuleHelper::getLayoutPath('mod_fancypantsaccordion'));
