@@ -22,3 +22,6 @@ v1.1 - 21/03/2012
 v1.2 - 21/03/2012
 - Added CSS to make all elements have a max-width of 100%.
 - Added word-wrap: break-word in case any elements are super long.
+
+Version 1.2.1 - 21/03/2012
+-- Removed default paragraph text size of 16px. Should pick up your default paragraph text size now.
