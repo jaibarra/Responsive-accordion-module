@@ -39,6 +39,7 @@ defined('_JEXEC') or die;
 			oneOpenedItem:true,
 			speed:300,
 			scrollSpeed:300	
+			<?php if($params->get('firstopen') == 1){ echo ",open:0"; } ?>
 		});
     });
 </script>
