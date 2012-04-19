@@ -38,7 +38,7 @@
 				<field name="headingSize" type="text" default="" label="Enter a heading size (will be px)" description="Leave blank for default 14px"/>
 				<field name="headingHeight" type="text" default="" label="Enter height of headings (will be px)" description="Leave blank for default 30px height"/>
 				<field name="catid" type="category" extension="com_content" 
-				multiple="false" defualt="" size="10" label="Category"
+				multiple="true" defualt="" size="10" label="Category"
 				description="Choose your category to output"/>
 				<field name="count" type="text" default="5" label="How many?"
 				description="How many articles to show"/>
