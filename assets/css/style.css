@@ -35,6 +35,10 @@
 	color:#f00f00;
 }
 
+.fancypantsaccordionholder ul li > a p{
+	font-size:10px;
+}
+
 .fancypantsaccordionholder ul li > a span{
    	background: transparent url('down.png') no-repeat center center;
     text-indent:-9000px;

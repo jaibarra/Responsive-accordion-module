@@ -6,21 +6,39 @@ defined('_JEXEC') or die;
 
 ?>
 
+<?php $showCat = $params->get('showCat');
+	  $headingHeight = $params->get('headingHeight');
+      $headingSize = $params->get('headingSize'); 
+      $catSize = $params->get('catSize');
+?>
+
 <div class="fancypantsaccordionholder <?php echo $moduleclass_sfx;?>">
 
 	<ul>
 		
 		<?php foreach ($list as $item): ?>
 		
-		<?php $headingHeight = $params->get('headingHeight'); ?>
-		<?php $headingSize = $params->get('headingSize'); ?>
+		<?php 
+			$categoryID = $item->catid;
+			$database = JFactory::getDBO();
+			$sql = "SELECT title FROM #__categories WHERE id = ".$categoryID;
+			$database->setQuery( $sql );
+			$catname=$database->loadResult();		
+		?>
 		
 		<li <?php if($headingHeight != "") { echo "style='height:".$headingHeight."px; list-style:none;'"; } ?>>
 			<a href="#" class="headerlink" <?php if($headingHeight != "" && $headingSize =="" ) { echo "style='line-height:".$headingHeight."px;'"; }  
 											else if($headingHeight == "" && $headingSize !="" ) { echo "style='font-size:".$headingSize."px;'"; }
 											else if($headingHeight != "" && $headingSize !="" ) { echo "style='font-size:".$headingSize."px; line-height:".$headingHeight."px;'";}
 			?> >
-				<?php echo htmlspecialchars($item->title); ?>
+			<?php if ($showCat == '0'){
+					echo htmlspecialchars($item->title);
+				} else if ($showCat == '1' && $catSize == ""){
+					echo htmlspecialchars($item->title)." <p style='display:inline'>(".$catname.")</p>" ; 
+				} else {
+					echo htmlspecialchars($item->title)." <p style='display:inline; font-size:".$catSize."px'>(".$catname.")</p>" ;
+				}
+			?>
 				<span class="acc-arrow">Open or Close</span>
 			</a>
 			<div class="acc-content">

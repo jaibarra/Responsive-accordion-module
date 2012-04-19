@@ -35,8 +35,13 @@
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>
+				<field name="showCat" type="radio" default="0" label="Show category?" description="If yes, category will be shown next to article title">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
 				<field name="headingSize" type="text" default="" label="Enter a heading size (will be px)" description="Leave blank for default 14px"/>
 				<field name="headingHeight" type="text" default="" label="Enter height of headings (will be px)" description="Leave blank for default 30px height"/>
+				<field name="catSize" type="text" default="" label="Enter a size for the category (will be px if you're using one)" description="Leave blank for default 10px"/>
 				<field name="catid" type="category" extension="com_content" 
 				multiple="true" defualt="" size="10" label="Category"
 				description="Choose your category to output"/>
