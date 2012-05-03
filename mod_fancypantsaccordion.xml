@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>tristan.brookes@code7webdesign.co.uk</authorEmail>
 	<authorURL>http://www.code7webdesign.co.uk</authorURL>
-	<version>1.2.2</version>
+	<version>1.3.1</version>
 	<description>A responsive article accordion module.</description>
 	
 	<files>
@@ -36,6 +36,10 @@
 					<option value="0">No</option>
 				</field>
 				<field name="showCat" type="radio" default="0" label="Show category?" description="If yes, category will be shown next to article title">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="readmores" type="radio" default="0" label="Use read mores?">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>

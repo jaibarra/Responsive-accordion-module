@@ -20,10 +20,12 @@ defined('_JEXEC') or die;
 		
 		<?php 
 			$categoryID = $item->catid;
+			$itemID = $item->id;
 			$database = JFactory::getDBO();
 			$sql = "SELECT title FROM #__categories WHERE id = ".$categoryID;
 			$database->setQuery( $sql );
-			$catname=$database->loadResult();		
+			$catname=$database->loadResult();	
+			$url = JRoute::_(ContentHelperRoute::getArticleRoute($itemID, $categoryID));
 		?>
 		
 		<li <?php if($headingHeight != "") { echo "style='height:".$headingHeight."px; list-style:none;'"; } ?>>
@@ -42,7 +44,14 @@ defined('_JEXEC') or die;
 				<span class="acc-arrow">Open or Close</span>
 			</a>
 			<div class="acc-content">
-				<?php echo $item->introtext; ?>
+				<?php 
+					$intro = $item->introtext;
+					$full = $item->fulltext;
+					echo $intro;
+					if($full != ''){
+					echo "<a href='.$url.'>Read More</a>";
+					}
+				?>
 			</div>
 		</li>
 		
