@@ -25,7 +25,7 @@ defined('_JEXEC') or die;
 			$sql = "SELECT title FROM #__categories WHERE id = ".$categoryID;
 			$database->setQuery( $sql );
 			$catname=$database->loadResult();	
-			$url = JRoute::_(ContentHelperRoute::getArticleRoute($itemID, $categoryID));
+			$url = '/index.php?option=com_content&view=article&id='.$itemID;
 		?>
 		
 		<li <?php if($headingHeight != "") { echo "style='height:".$headingHeight."px; list-style:none;'"; } ?>>
