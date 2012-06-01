@@ -57,6 +57,8 @@
 					<option value="asc">Joomla order ascending</option>
 					<option value="pubAsc">Publish Date Ascending</option>
 					<option value="pubDesc">Publish Date Descending</option>
+					<option value="alpasc">Alphabetical Reverse</option>
+					<option value="alpdesc">Alphabetical</option>
 					<option value="rcnt">Recently Added</option>
 					<option value="random">Random</option>
 				</field>

@@ -77,6 +77,14 @@ class mod_fancypantsaccordionHelper{
 				$model->setState('list.ordering','a.ordering');
 				$model->setState('list.direction','ASC');
 				break;
+			case 'alpasc':
+				$model->setState('list.ordering','a.title');
+				$model->setState('list.direction', 'DESC');
+				break;
+			case 'alpdesc':
+				$model->setState('list.ordering','a.title');
+				$model->setState('list.direction','ASC');
+				break;
 			case 'random':
 				$model->setState('list.ordering','rand()');
 				break;
